@@ -50,31 +50,6 @@ def next_player(player):
     assert player == WHITE or player == BLACK
     return (WHITE + BLACK) - player
 
-def update_readme(winner, player, chessboard):
-    player = PLAYERS[player]
-
-    headers = ['{}'.format(i) for i in range(N)]
-
-    table = []
-    for i in range(N):
-        row = []
-        for j in range(N):
-            issue_link = ISSUE_LINK.format(f'{i}-{j}')
-            marker = MARKERS[chessboard[i, j]]
-            content = HYPER_LINK.format(issue_link, marker)
-            row.append(content)
-        table.append(row)
-
-    table = str(tabulate(table, headers, tablefmt='github'))
-    with open('README.md', 'w', encoding='utf-8') as fp:
-        if winner == EMPTY:
-            fp.write(f'You are {player} now\n\n')
-        else:
-            winner = PLAYERS[winner]
-            link = ISSUE_LINK.format('restart')
-            fp.write(f'Winner is {winner}! Click [here]({link}) to restart. \n\n')
-        fp.write(table)
-
 
 def judge(chessboard):
     dirs = ((1, -1), (1, 0), (1, 1), (0, 1))
@@ -106,12 +81,50 @@ def judge(chessboard):
     return EMPTY
 
 
+def update_gobang(winner, player, chessboard):
+    player = PLAYERS[player]
+
+    headers = ['{}'.format(i) for i in range(N)]
+
+    table = []
+    for i in range(N):
+        row = []
+        for j in range(N):
+            issue_link = ISSUE_LINK.format(f'{i}-{j}')
+            marker = MARKERS[chessboard[i, j]]
+            content = HYPER_LINK.format(issue_link, marker)
+            row.append(content)
+        table.append(row)
+
+    table = str(tabulate(table, headers, tablefmt='github'))
+    with open('gobang.md', 'w', encoding='utf-8') as fp:
+        if winner == EMPTY:
+            fp.write(f'You are {player} now\n\n')
+        else:
+            winner = PLAYERS[winner]
+            link = ISSUE_LINK.format('restart')
+            fp.write(f'Winner is {winner}! Click [here]({link}) to restart. \n\n')
+        fp.write(table)
+
+
+def update_readme():
+    with open('description.md', 'r', encoding='utf-8') as fp:
+        description = fp.read()
+    with open('gobang.md', 'r', encoding='utf-8') as fp:
+        gobang = fp.read()
+
+    readme = description.replace('{gobang}', gobang)
+    with open('README.md', 'w', encoding='utf-8') as fp:
+        fp.write(readme)
+
+
 def restart():
     data_dir = Path('.data')
     chessboard_file = data_dir / 'chessboard.txt'
     chessboard = np.zeros((N, N), dtype=np.int32)
     np.savetxt(chessboard_file, chessboard, fmt="%d")
-    update_readme(EMPTY, BLACK, chessboard)
+    update_gobang(EMPTY, BLACK, chessboard)
+    update_readme()
 
 
 def start(issue_name):
@@ -124,7 +137,8 @@ def start(issue_name):
 
     winner = judge(chessboard)
     player = next_player(player)
-    update_readme(winner, player, chessboard)
+    update_gobang(winner, player, chessboard)
+    update_readme()
 
 
 if __name__ == '__main__':

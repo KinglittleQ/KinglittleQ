@@ -1,0 +1,4 @@
+## Play Gobang Here
+
+{gobang}
+

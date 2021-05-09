@@ -22,6 +22,7 @@ jobs:
         run: |
           git config --global user.name 'Chengqi Deng'
           git config --global user.email 'checkdeng0903@gmail.com'
-          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
+          git add -u .
+          git commit -m '${{ github.actor }} took ${{ github.event.issue.title }}'
           git push origin || echo "No changes to commit"
           
