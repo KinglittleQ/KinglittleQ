@@ -23,3 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "issue-name=${{ github.event.issue.title }}"
+
+      - name: Commit
+        run: |
+          echo "${{ github.event.issue.title }}" > README.md
+          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
+          
