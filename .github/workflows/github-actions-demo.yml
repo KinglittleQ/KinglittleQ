@@ -29,6 +29,8 @@ jobs:
         run: echo "${{ github.event.issue.title }}" >> README.md
       - name: Commit
         run: |
+          git config --global user.name 'Chengqi Deng'
+          git config --global user.email 'checkdeng0903@gmail.com'
           git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
           
