@@ -19,9 +19,10 @@ MARKERS = {EMPTY: '` `', WHITE: '`O`', BLACK: '`X`',
 
 def parse_issue_name(name):
     items = name.split('-')
-    assert len(items) == 2
-    row_id = int(items[0])
-    col_id = int(items[1])
+    assert len(items) == 3
+    assert items[0] == 'Put'
+    row_id = int(items[1])
+    col_id = int(items[2])
 
     return row_id, col_id
 
