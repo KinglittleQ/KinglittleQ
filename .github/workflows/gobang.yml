@@ -20,8 +20,8 @@ jobs:
         run: python update.py "${{ github.event.issue.title }}"
       - name: Commit
         run: |
-          git config --global user.name 'Chengqi Deng'
-          git config --global user.email 'checkdeng0903@gmail.com'
+          git config --global user.name 'Github Action Robot'
+          git config --global user.email 'robot@github.com'
           git add -u .
           git commit -m '${{ github.actor }} took ${{ github.event.issue.title }}'
           git push origin || echo "No changes to commit"
