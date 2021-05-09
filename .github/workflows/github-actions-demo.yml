@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.7'
       - name: Update README
-        run: echo "${{ github.event.issue.title }}" >> README.md
+        run: python update.py "${{ github.event.issue.title }}"
       - name: Commit
         run: |
           git config --global user.name 'Chengqi Deng'
