@@ -6,7 +6,7 @@ from pathlib import Path
 
 HYPER_LINK = '<a href="{}">{}</a>'
 ISSUE_BODY =  "Just push 'Submit new issue'. You do not need to do anything else.".replace(' ', '+')
-ISSUE_LINK = 'https://github.com/KinglittleQ/github-action-demo/issues/new?title=Put-{}&body=' + ISSUE_BODY
+ISSUE_LINK = 'https://github.com/KinglittleQ/KinglittleQ/issues/new?title=Put-{}&body=' + ISSUE_BODY
 N = 10
 
 EMPTY = 0
