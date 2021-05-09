@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.7'
       - name: Install packages
-        run: pip install tabulate
+        run: pip install tabulate numpy
       - name: Update README
         run: python update.py "${{ github.event.issue.title }}"
       - name: Commit

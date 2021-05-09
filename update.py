@@ -1,7 +1,6 @@
 import sys
 import numpy as np
 from tabulate import tabulate
-import json
 from pathlib import Path 
 
 
