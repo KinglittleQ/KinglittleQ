@@ -7,7 +7,7 @@ from pathlib import Path
 HYPER_LINK = '<a href="{}">{}</a>'
 ISSUE_BODY =  "Just push 'Submit new issue'. You do not need to do anything else.".replace(' ', '+')
 ISSUE_LINK = 'https://github.com/KinglittleQ/github-action-demo/issues/new?title=Put-{}&body=' + ISSUE_BODY
-N = 15
+N = 10
 
 EMPTY = 0
 WHITE = 1
@@ -99,7 +99,7 @@ def update_gobang(winner, player, chessboard):
 
     table = str(tabulate(table, headers, tablefmt='github'))
     with open('gobang.md', 'w', encoding='utf-8') as fp:
-        fp.write(f'`O` is white, `X` is black.\n')
+        fp.write(f'`O` is white, `X` is black. Simply click the chessboard to put a chess.\n')
         if winner == EMPTY:
             fp.write(f'You are {player} now\n\n')
         else:
