@@ -25,10 +25,10 @@ jobs:
       - run: echo "issue-name=${{ github.event.issue.title }}"
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: pwd && ls
+      - name: Update README
+        run: echo "${{ github.event.issue.title }}" >> README.md
       - name: Commit
         run: |
-          echo "${{ github.event.issue.title }}" > README.md
           git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
           
