@@ -5,6 +5,7 @@ on:
 
 jobs:
   Play-Gobang:
+    if: startsWith(github.event.issue.title, 'Put-')
     runs-on: ubuntu-latest
     steps:
       - run: echo "issue-name=${{ github.event.issue.title }}"
@@ -25,4 +26,8 @@ jobs:
           git add -u .
           git commit -m '${{ github.actor }} took ${{ github.event.issue.title }}'
           git push origin || echo "No changes to commit"
-          
+      - name: Close Issue
+        uses: peter-evans/close-issue@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment: Auto-closing issue
