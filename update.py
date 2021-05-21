@@ -131,7 +131,7 @@ def restart():
 
 
 def start(issue_name):
-    if issue_name == 'restart':
+    if issue_name == 'Put-restart':
         restart()
         return
 
