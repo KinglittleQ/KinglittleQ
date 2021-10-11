@@ -1,7 +1,11 @@
-### Hi there 👋
 
-![bio](https://github-readme-stats.vercel.app/api?username=KinglittleQ&show_icons=true&icon_color=000000&text_color=000000&bg_color=ffffff&hide_title=false&title_color=000000)
+### 📖 About me
 
+- 💻 I'm a CS graduate at Zhejiang University (graduating in April 2023)
+- 🎓 I'm a member of [@ZJULearning](https://github.com/ZJULearning)
+- 📺 I'm one of the top 4 contributors of [faiss](https://github.com/facebookresearch/faiss)
+- 🌐 My research area includes similarity search and voice conversion
+- 📺 My programming skills include C++ and Python
 
 ### Play Gobang Here
 
