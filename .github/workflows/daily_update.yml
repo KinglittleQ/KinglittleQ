@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.7'
       - name: Install packages
-        run: pip install tabulate numpy urllib
+        run: pip install tabulate numpy
       - name: Update README
         run: python daily_update.py
       - name: Commit
