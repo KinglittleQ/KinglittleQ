@@ -3,6 +3,8 @@ import numpy as np
 from tabulate import tabulate
 from pathlib import Path 
 
+from utils import update_readme
+
 
 HYPER_LINK = '<a href="{}">{}</a>'
 ISSUE_BODY =  "Just push 'Submit new issue'. You do not need to do anything else.".replace(' ', '+')
@@ -108,17 +110,6 @@ def update_gobang(winner, player, chessboard):
             link = ISSUE_LINK.format('restart')
             fp.write(f'Winner is {winner}! Click [here]({link}) to restart. \n\n')
         fp.write(table)
-
-
-def update_readme():
-    with open('description.md', 'r', encoding='utf-8') as fp:
-        description = fp.read()
-    with open('gobang.md', 'r', encoding='utf-8') as fp:
-        gobang = fp.read()
-
-    readme = description.replace('{gobang}', gobang)
-    with open('README.md', 'w', encoding='utf-8') as fp:
-        fp.write(readme)
 
 
 def restart():

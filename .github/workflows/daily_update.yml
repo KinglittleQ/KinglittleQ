@@ -1,0 +1,27 @@
+name: DailyUpdate
+on:
+  push:
+  schedule:
+    - cron: "0 0 * * *"  # run everyday
+
+jobs:
+  DailyUpdate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install Python3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: Install packages
+        run: pip install tabulate numpy urllib
+      - name: Update README
+        run: python daily_update.py
+      - name: Commit
+        run: |
+          git config --global user.name 'Github Action Bot'
+          git config --global user.email 'checkdeng.bot@gmail.com'
+          git add -u .
+          git commit -m 'Daily Update'
+          git push origin || echo "No changes to commit"
