@@ -7,6 +7,8 @@
 - 🦊 My research area includes similarity search and voice conversion
 - 🐨 My programming skills include C++ and Python
 
+![profile_views](https://komarev.com/ghpvc/?username=kinglittleq&style=flat&label=Profile+views+since+2022/02/22)
+
 ### Play Gobang Here
 
 {gobang}
