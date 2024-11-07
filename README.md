@@ -2,7 +2,7 @@
 ### 📖 About me
 
 - 😄 I'm one of the main authors of [Faiss](https://github.com/facebookresearch/faiss)
-- ⭐ I have 1548 stars on GitHub
+- ⭐ I have 1549 stars on GitHub
 - 🐼 I'm a member of [@ZJULearning](https://github.com/ZJULearning) and [@DeepSeek-AI](https://github.com/deepseek-ai)
 - 🦊 My research area includes similarity search and voice conversion
 - 🐨 My programming skills include C++ and Python
